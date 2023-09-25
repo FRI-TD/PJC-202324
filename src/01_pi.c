@@ -2,13 +2,11 @@
 #include<stdlib.h>
 #include<time.h>
 
-// izpis 10 nakljucnih stevil med 10 in 20
-
 int main() {
   double pi;
-  int a=10;
+  int a=10;  // izpis na 10 decimalk
 
-  srand(time(NULL));
+  srand(time(NULL)); // inicializacija generatorja nakljucnih stevil
 
   int n = 10000;
   int s = 0;
