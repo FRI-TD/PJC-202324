@@ -25,7 +25,7 @@ int main() {
 
   tck t2 = {1};   // t2.x=1, t2.y=???
   
-  struct tocka t3 = {.y=4, .x=2};   // t3.x=2, t3.y=4
+  tck t3 = {.y=4, .x=2};   // t3.x=2, t3.y=4
 
   printf("(%d, %d, %.2f)\n", t1.x, t1.y, razdalja(t1));
   printf("(%d, %d, %.2f)\n", t2.x, t2.y, razdalja(t2));
