@@ -70,7 +70,62 @@ student* dodajK(student *z, student *nov) {
   return z;
 }
 
+// doda studenta na pravo mesto v seznamu in vrne nov zacetek
+student* dodajU(student *z, student *nov) {
+  if (z == NULL || strcmp(nov->ime, z->ime) <= 0) {
+    nov->next = z;
+	return nov;
+  }
 
+  // poiscmo zadnji element, ki se ni NULL oziroma, ki je se manjsi od novega elementa
+  student *t = z;
+  while (t->next != NULL && strcmp(t->next->ime, nov->ime) < 0)
+	t = t->next;
+
+  nov->next = t->next;
+  t->next   = nov;
+
+  return z;	
+}
+
+// uredi seznam z
+student * uredi(student *z) {
+  student *nZ = NULL;
+  
+  while (z != NULL) {
+	student *t = z -> next;
+	z->next=NULL;
+	nZ = dodajU(nZ, z);
+	z = t;
+  }
+
+  return nZ;
+}
+
+// odstrani studenta z danim id in vrne nov zacetek
+student * brisi(student *z, int id) {
+  if (z == NULL) return NULL;
+
+  // brisem prvi element
+  if (z->id == id) {
+    student *n = z->next;
+	brisiStudenta(z);
+	return n;
+  }
+
+  // brisem nekoga iz "sredine" seznama
+  student *t = z;
+  while (t->next != NULL && t->next->id != id)
+	t = t->next;
+
+  if (t->next != NULL) {
+    student *b = t->next;
+	t->next = t->next->next;
+	brisiStudenta(b);
+  }
+
+  return z;
+}
 
 void izpisiSeznam(student *z) {
   while (z != NULL) {
@@ -84,6 +139,10 @@ int main() {
   student *s2 = novStudent("B", 63001232); dodajOceno(s2, 5); dodajOceno(s2, 6);
   student *s3 = novStudent("C", 63001233); dodajOceno(s3, 7); dodajOceno(s3, 8);
   student *s4 = novStudent("D", 63001234); dodajOceno(s4, 8); dodajOceno(s4, 9);
+  student *s5 = novStudent("J", 63001235); dodajOceno(s5, 10);dodajOceno(s5, 9);
+  student *s6 = novStudent("C", 63001236); dodajOceno(s6, 5); dodajOceno(s6, 6);
+  student *s7 = novStudent("U", 63001237); dodajOceno(s7, 7); dodajOceno(s7, 8);
+  student *s8 = novStudent("O", 63001238); dodajOceno(s8, 8); dodajOceno(s8, 9);
 
 
   student *z = NULL; // kazalec na zacetek seznama; seznam je prazen
@@ -91,6 +150,19 @@ int main() {
   z = dodajK(z, s2);
   z = dodajK(z, s3);
   z = dodajK(z, s4);
+
+  z = brisi(z, 63001232);
+  z = brisi(z, 63001231);
+  z = brisi(z, 63001231);
+  z = brisi(z, 63001233);
+  z = brisi(z, 63001234);
+
+  //  z = dodajZ(z, s5);
+//  z = dodajZ(z, s6);
+//  z = dodajU(z, s7);
+//  z = dodajK(z, s8);
+
+//  z = uredi(z);
 
   izpisiSeznam(z);
 
