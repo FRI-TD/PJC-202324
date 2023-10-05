@@ -139,23 +139,28 @@ int main() {
   student *s2 = novStudent("B", 63001232); dodajOceno(s2, 5); dodajOceno(s2, 6);
   student *s3 = novStudent("C", 63001233); dodajOceno(s3, 7); dodajOceno(s3, 8);
   student *s4 = novStudent("D", 63001234); dodajOceno(s4, 8); dodajOceno(s4, 9);
-  student *s5 = novStudent("J", 63001235); dodajOceno(s5, 10);dodajOceno(s5, 9);
-  student *s6 = novStudent("C", 63001236); dodajOceno(s6, 5); dodajOceno(s6, 6);
-  student *s7 = novStudent("U", 63001237); dodajOceno(s7, 7); dodajOceno(s7, 8);
-  student *s8 = novStudent("O", 63001238); dodajOceno(s8, 8); dodajOceno(s8, 9);
+  student *s5 = novStudent("A", 63001235); dodajOceno(s5, 10);dodajOceno(s5, 9);
+  student *s6 = novStudent("B", 63001236); dodajOceno(s6, 5); dodajOceno(s6, 6);
+  student *s7 = novStudent("C", 63001237); dodajOceno(s7, 7); dodajOceno(s7, 8);
+  student *s8 = novStudent("D", 63001238); dodajOceno(s8, 8); dodajOceno(s8, 9);
 
 
   student *z = NULL; // kazalec na zacetek seznama; seznam je prazen
-  z = dodajK(z, s1);
-  z = dodajK(z, s2);
-  z = dodajK(z, s3);
-  z = dodajK(z, s4);
+  z = dodajU(z, s1);
+  z = dodajU(z, s2);
+  z = dodajU(z, s3);
+  z = dodajU(z, s4);
+  z = dodajU(z, s5);
+  z = dodajU(z, s6);
+  z = dodajU(z, s7);
+  z = dodajU(z, s8);
 
-  z = brisi(z, 63001232);
-  z = brisi(z, 63001231);
-  z = brisi(z, 63001231);
-  z = brisi(z, 63001233);
-  z = brisi(z, 63001234);
+
+ // z = brisi(z, 63001232);
+ // z = brisi(z, 63001231);
+ // z = brisi(z, 63001231);
+ // z = brisi(z, 63001233);
+ // z = brisi(z, 63001234);
 
   //  z = dodajZ(z, s5);
 //  z = dodajZ(z, s6);

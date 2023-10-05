@@ -19,8 +19,10 @@ int main() {
   printf("p=%p\n", p);
 
   void *q;
+  printf("x=%d\n", x);
   q = &x;
-  // *q = 20; 
-  printf("q=%p\n", q);
+  *(int *)q = 20; 
+  printf("x=%d\n", x);
+  
   // q++;
 }
